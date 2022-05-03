@@ -3,6 +3,10 @@ img {
   display: block;
   height: 100%;
 }
+a {
+  text-decoration: none;
+  color: currentColor;
+}
 
 .search-form {
   position: fixed;
@@ -50,9 +54,19 @@ img {
 .photo-card {
   margin: 15px;
   width: calc((100% - 15px * 8) / 4);
-
-  box-shadow: 12px 16px 21px 0px rgba(64, 64, 64, 0.68);
   border-radius: 5px;
+  transition: all 250ms;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-left: 1px solid rgba(238, 238, 238, 0.788);
+  border-bottom: 1px solid rgba(238, 238, 238, 0.788);
+  border-right: 1px solid rgba(238, 238, 238, 0.788);
+  &:hover,
+  &:focus {
+    box-shadow: 12px 16px 21px 0px rgba(64, 64, 64, 0.68);
+
+    transform: translate();
+  }
   img {
     height: 240px;
   }
@@ -62,10 +76,6 @@ img {
   display: flex;
   justify-content: center;
   padding: 5px;
-  border-radius: 10%;
-  border-left: 1px solid rgba(238, 238, 238, 0.555);
-  border-bottom: 1px solid rgba(238, 238, 238, 0.555);
-  border-right: 1px solid rgba(238, 238, 238, 0.555);
 }
 
 .info-item {

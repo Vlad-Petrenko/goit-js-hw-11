@@ -5,6 +5,7 @@ export default class GetPhotos {
   constructor() {
     this.searchQuery = '';
     this.page = 1;
+    this.getTotalhits = '';
   }
 
   async getPhoto() {
@@ -24,11 +25,15 @@ export default class GetPhotos {
     try {
       const { data } = await axios.get(URL, options);
       this.incrementPage();
-      Notify.success(`Hooray! We found ${data.totalHits} images.`);
+      this.getTotalhits = data.totalHits;
       return data.hits;
     } catch (error) {
+      Notify.failure("We're sorry, but you've reached the end of search results.");
       console.error(error);
     }
+  }
+  succesFoundImages() {
+    Notify.success(`Hooray! We found ${this.getTotalhits} images.`);
   }
 
   incrementPage() {
